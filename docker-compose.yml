@@ -1,0 +1,22 @@
+version: "3"
+services:
+  api:
+    container_name: api
+    image: node:14-alpine
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: npm start
+  app:
+    depends_on:
+      - api
+    container_name: app
+    image: node:14-alpine
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: node_modules/@angular/cli/bin/ng serve --host 0.0.0.0 --disable-host-check --poll 1
