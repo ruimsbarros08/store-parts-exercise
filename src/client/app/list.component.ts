@@ -35,8 +35,15 @@ import {Observable, Subject, Subscription} from 'rxjs';
                     </div>
                     <div class="col">
                         <label class="label" for="price_order">Price order</label>
-                        <select id="price_order" name="price_order" class="form-control" [ngModel]="priceOrder"
-                                ngDefaultControl></select>
+                        <select id="price_order"
+                                name="price_order"
+                                class="form-control"
+                                [(ngModel)]="priceOrder"
+                                ngDefaultControl>
+                            <option value="''"></option>
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -47,7 +54,7 @@ import {Observable, Subject, Subscription} from 'rxjs';
                         <th>Type</th>
                         <th>Price</th>
                     </tr>
-                    <tr *ngFor="let part of parts">
+                    <tr *ngFor="let part of parts | priceSort:priceOrder">
                         <td> {{ part.name }}</td>
                         <td> {{ part.type }}</td>
                         <td> {{ part.price }}</td>
@@ -63,7 +70,7 @@ export class ListComponent implements OnInit, OnDestroy {
     partTypes: string[];
     query = '';
     type = '';
-    priceOrder: string;
+    priceOrder = '';
     query$ = new Subject<string>();
     type$ = new Subject<string>();
 

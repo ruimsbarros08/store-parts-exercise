@@ -7,11 +7,13 @@ import { ListComponent } from './list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { PriceSortPipe } from './price-sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
+    PriceSortPipe,
   ],
   imports: [
     BrowserModule,
