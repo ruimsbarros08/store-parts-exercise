@@ -4,7 +4,7 @@
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
-## API Documentation
+## Documentation
 
 To install
 
@@ -16,4 +16,9 @@ To run
 
 ```
 docker-compose up
+```
+
+To test
+```
+docker run --rm -v "$PWD":/app -w /app timbru31/node-chrome:14 node_modules/@angular/cli/bin/ng test
 ```
