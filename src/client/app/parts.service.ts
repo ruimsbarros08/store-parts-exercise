@@ -25,6 +25,10 @@ export class PartsService {
     return this.httpClient.get<Part[]>(`${environment.api}/store/parts`, {params: params});
   }
 
+  getPartByName(name: string): Observable<Part> {
+    return this.httpClient.get<Part>(`${environment.api}/store/parts/${name}`);
+  }
+
   getPartTypes(): Observable<string[]> {
     return this.httpClient.get<string[]>(`${environment.api}/store/part-types`);
   }

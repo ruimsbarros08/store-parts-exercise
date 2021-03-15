@@ -55,7 +55,7 @@ import {Observable, Subject, Subscription} from 'rxjs';
                         <th>Price</th>
                     </tr>
                     <tr *ngFor="let part of parts | priceSort:priceOrder">
-                        <td> {{ part.name }}</td>
+                        <td> <a [routerLink]="['/', part.name]">{{ part.name }}</a></td>
                         <td> {{ part.type }}</td>
                         <td> {{ part.price }}</td>
                     </tr>

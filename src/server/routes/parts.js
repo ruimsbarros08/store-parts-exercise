@@ -8,7 +8,7 @@ const partTypes = require("../mock-data/part-types");
 router.get("/parts", (req, res) => {
 	const params = { ...req.query };
 	res.set("Access-Control-Allow-Origin", "*");
-	const delay = Math.random() * 6 * 1000;
+	const delay = getDelay();
 	let content = null;
 	if (params.type) {
 		setTimeout(() => {
@@ -24,9 +24,24 @@ router.get("/parts", (req, res) => {
 	}, delay);
 });
 
+router.get("/parts/:name", (req, res) => {
+	res.set("Access-Control-Allow-Origin", "*");
+	const name = req.params.name;
+	const delay = getDelay();
+	let content = null;
+	setTimeout(() => {
+		content = storeParts.find(part => part.name === name);
+		res.send(content);
+	}, delay);
+});
+
 router.get("/part-types", (req, res) => {
 	res.set("Access-Control-Allow-Origin", "*");
 	res.send(partTypes);
 });
+
+function getDelay() {
+	return Math.random() * 6 * 1000;
+}
 
 module.exports = router;
