@@ -1,13 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
-import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import {ListComponent} from './list.component';
-import {PriceSortPipe} from './price-sort.pipe';
-import {DetailComponent} from './detail.component';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
